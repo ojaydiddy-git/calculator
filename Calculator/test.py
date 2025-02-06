@@ -24,3 +24,29 @@ class TestCalculator(unittest.TestCase):
         for a, b, expected in test_cases:
             with self.subTest(f"{a} + {b}"):
                 self.assertAlmostEqual(self.calculator.add(a, b), expected)
+
+        
+    def test_subtract(self):
+        """Test the subtract method with various inputs."""
+        test_cases = [
+            (5, 3, 2),
+            (1, 1, 0),
+            (0, 0, 0),
+            (10, 15, -5),
+        ]
+        for a, b, expected in test_cases:
+            with self.subTest(f"{a} - {b}"):
+                self.assertEqual(self.calculator.subtract(a, b), expected)
+
+    def test_multiply(self):
+        """Test the multiply method with various inputs."""
+        test_cases = [
+            (2, 3, 6),
+            (-2, 3, -6),
+            (0, 5, 0),
+            (0.5, 2, 1),
+            (100, 0.5, 50)
+        ]
+        for a, b, expected in test_cases:
+            with self.subTest(f"{a} * {b}"):
+                self.assertEqual(self.calculator.multiply(a, b), expected)
